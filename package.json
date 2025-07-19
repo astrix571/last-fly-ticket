@@ -1,13 +1,19 @@
 {
+<<<<<<< HEAD
   "name": "react-javascript",
   "version": "1.0.0",
   "type": "module",
   "description": "React TypeScript on Replit, using Vite bundler",
+=======
+  "name": "last-fly-ticket",
+  "version": "1.0.0",
+>>>>>>> 707efb7aaef7d4df795ad8c4e6a2f6f036443c23
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
+<<<<<<< HEAD
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,5 +25,13 @@
     "react-dom": "^18.2.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
+=======
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
+>>>>>>> 707efb7aaef7d4df795ad8c4e6a2f6f036443c23
   }
 }
