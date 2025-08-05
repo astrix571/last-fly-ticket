@@ -1,17 +1,21 @@
-## Running React on Replit
+# 🛫 Last Fly Ticket
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+🎯 A smart GPT-4-powered system that recommends flight destinations based on your emotions.
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+## 📦 Tech Stack
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+- React + Vite
+- Tailwind CSS
+- GPT-4 integration (coming soon)
 
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
+## 🧠 Core Idea
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
+> "Where would your heart fly if it could book the ticket?"
 
-### Typescript
+A system that senses your emotional state and recommends a fitting travel destination.
 
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+## 🚀 Local Development
+
+```bash
+npm install
+npm run dev
