@@ -105,4 +105,12 @@ export default function App() {
       {results && (
         <div style={{ marginTop: "2rem", border: "1px solid #ccc", padding: "1rem", background: "#f9f9f9" }}>
           <h2>הטיסה שלך:</h2>
-          <p><
+          <p><strong>יעד:</strong> {results.destination}</p>
+          <p><strong>מחיר:</strong> {results.price}</p>
+          <p><strong>יציאה:</strong> {results.flightTime}</p>
+          <p><strong>חוויה:</strong> {results.description}</p>
+        </div>
+      )}
+    </div>
+  );
+}
