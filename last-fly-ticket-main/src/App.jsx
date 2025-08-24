@@ -4,6 +4,8 @@ export default function App() {
   const [departure, setDeparture] = useState("");
   const [emotion, setEmotion] = useState("");
   const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const emotionToDestination = (emotion) => {
     switch (emotion.toLowerCase()) {
@@ -21,6 +23,10 @@ export default function App() {
   };
 
   const searchFlights = async () => {
+    setLoading(true);
+    setResults(null);
+    setError(null);
+
     const destination = emotionToDestination(emotion);
 
     const todayPlusTwo = new Date();
@@ -48,29 +54,21 @@ export default function App() {
           destination: flight.cityTo,
           price: `$${flight.price}`,
           description: emotion,
-          flightTime: flight.route[0]?.local_departure?.split("T")[1]?.slice(0,5) || "--"
+          flightTime: flight.route[0]?.local_departure?.split("T")[1]?.slice(0, 5) || "--"
         });
       } else {
-        setResults({
-          destination: "לא נמצאו טיסות כרגע",
-          price: "-",
-          description: "נסה שוב מאוחר יותר",
-          flightTime: "-"
-        });
+        setError("לא נמצאו טיסות בתאריך הזה. נסה מיקום אחר או רגש אחר.");
       }
     } catch (error) {
       console.error("שגיאה בחיפוש טיסות:", error);
-      setResults({
-        destination: "שגיאה בשרת",
-        price: "-",
-        description: "אנא נסה שוב",
-        flightTime: "-"
-      });
+      setError("שגיאה בשרת – אנא נסה שוב בעוד כמה דקות.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+    <div style={{ padding: "2rem", fontFamily: "sans-serif", maxWidth: "600px", margin: "auto" }}>
       <h1>Last Fly Ticket</h1>
       <p>בחר שדה תעופה ומצב רגשי – ואנחנו נמצא לך טיסה</p>
 
@@ -90,19 +88,21 @@ export default function App() {
         style={{ display: "block", margin: "1rem 0", padding: "0.5rem", width: "100%" }}
       />
 
-      <button onClick={searchFlights} style={{ padding: "0.5rem 1rem" }}>
-        מצא לי טיסה
+      <button
+        onClick={searchFlights}
+        disabled={loading || !departure || !emotion}
+        style={{ padding: "0.5rem 1rem", backgroundColor: "#007bff", color: "#fff", border: "none", cursor: "pointer" }}
+      >
+        {loading ? "מחפש טיסה..." : "מצא לי טיסה"}
       </button>
 
-      {results && (
-        <div style={{ marginTop: "2rem", border: "1px solid #ccc", padding: "1rem" }}>
-          <h2>הטיסה שלך:</h2>
-          <p><strong>יעד:</strong> {results.destination}</p>
-          <p><strong>מחיר:</strong> {results.price}</p>
-          <p><strong>יציאה:</strong> {results.flightTime}</p>
-          <p><strong>חוויה:</strong> {results.description}</p>
+      {error && (
+        <div style={{ marginTop: "2rem", color: "red", border: "1px solid red", padding: "1rem", background: "#ffe6e6" }}>
+          <strong>⚠️ שגיאה:</strong> {error}
         </div>
       )}
-    </div>
-  );
-}
+
+      {results && (
+        <div style={{ marginTop: "2rem", border: "1px solid #ccc", padding: "1rem", background: "#f9f9f9" }}>
+          <h2>הטיסה שלך:</h2>
+          <p><
