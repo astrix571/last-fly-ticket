@@ -80,18 +80,28 @@ export default function App() {
         style={{ display: "block", margin: "1rem 0", padding: "0.5rem", width: "100%" }}
       />
 
-      <input
-        type="text"
-        placeholder="איך אתה מרגיש? (לברוח / הרפתקה / שקט / אהבה)"
+      <select
         value={emotion}
         onChange={(e) => setEmotion(e.target.value)}
         style={{ display: "block", margin: "1rem 0", padding: "0.5rem", width: "100%" }}
-      />
+      >
+        <option value="">בחר מצב רגשי</option>
+        <option value="לברוח">לברוח</option>
+        <option value="הרפתקה">הרפתקה</option>
+        <option value="שקט">שקט</option>
+        <option value="אהבה">אהבה</option>
+      </select>
 
       <button
         onClick={searchFlights}
         disabled={loading || !departure || !emotion}
-        style={{ padding: "0.5rem 1rem", backgroundColor: "#007bff", color: "#fff", border: "none", cursor: "pointer" }}
+        style={{
+          padding: "0.5rem 1rem",
+          backgroundColor: loading ? "#6c757d" : "#007bff",
+          color: "#fff",
+          border: "none",
+          cursor: loading ? "not-allowed" : "pointer"
+        }}
       >
         {loading ? "מחפש טיסה..." : "מצא לי טיסה"}
       </button>
