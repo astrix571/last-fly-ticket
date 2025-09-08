@@ -1,42 +1,25 @@
 {
   "name": "last-fly-ticket",
   "version": "1.0.0",
-  "author": "Charles Stover <with-router@charlesstover.com>",
-  "bugs": {
-    "email": "with-router@charlesstover.com",
-    "url": "https://github.com/CharlesStover/with-router/issues"
-  },
-  "directories": {
-    "lib": "src"
-  },
-  "files": [
-    "index.js",
-    "package.json"
-  ],
-  "homepage": "https://github.com/CharlesStover/with-router#readme",
-  "license": "MIT",
-  "main": "index.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "set NODE_ENV=development&& webpack",
-    "prepublishOnly": "webpack",
-    "test": "echo \"No tests exist.\" && exit 0"
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
   },
   "dependencies": {
-    "axios": "^1.11.0",
-    "expo-constants": "^17.1.7"
+    "expo": "^53.0.0",
+    "expo-constants": "~15.2.0",
+    "expo-router": "^3.5.5",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-native": "0.80.0",
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-loader": "^8.0.0-beta.6",
-    "react": "^16.6.0",
-    "react-router": "^4.3.1",
-    "webpack": "^4.23.1",
-    "webpack-cli": "^3.1.2"
+    "@babel/core": "^7.20.0",
+    "typescript": "^5.0.0"
   },
   "private": true
 }
