@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "last-fly-ticket",
+    "name": "Last Fly Ticket",
     "slug": "last-fly-ticket",
     "version": "1.0.0",
-    "scheme": "lastflyticket",
-    "orientation": "portrait",
-    "jsEngine": "hermes",
+    "sdkVersion": "53.0.0",
     "platforms": ["ios", "android", "web"],
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -30,8 +30,9 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "EXPO_PUBLIC_AMADEUS_API_KEY": "ENiXJRV7BsBCgxPP38wHfAfjBH5AYk8G",
-      "EXPO_PUBLIC_AMADEUS_API_SECRET": "TuyfAhI3ADCXO3jo"
+      "eas": {
+        "projectId": "your-project-id"
+      }
     }
   }
 }
